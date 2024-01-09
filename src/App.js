@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from './pages/home/HomePage';
+import Catalogo from './pages/catalogo/Catalogo';
+import Actividades from './pages/actividades/Actividades';
+import SobreNos from './pages/sobrenos/SobreNos';
+import Contacto from './pages/contacto/Contacto';
+import Registro from './pages/forms/Registro';
+import Login from './pages/forms/Login';
+import Livro from './pages/livros/Livro';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+          <Header />
+         
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/catalogo" element={<Catalogo/>}/>
+          <Route path="/actividades" element={<Actividades/>}/>
+          <Route path="/sobrenos" element={<SobreNos/>}/>
+          <Route path="/contacto" element={<Contacto/>}/>
+          <Route path="/forms/Registro" element={<Registro/>}/>
+          <Route path="/forms/Login" element={<Login/>}/>
+          <Route path="/livros/:id" element={<Livro/>}/>
+        </Routes>
+
+          <Footer />
+    </BrowserRouter>
   );
 }
 
